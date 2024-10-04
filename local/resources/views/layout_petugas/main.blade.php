@@ -10,7 +10,8 @@
     <link href="{{ asset('/public/layouts/semi-dark-menu/css/dark/loader.css') }}" rel="stylesheet" type="text/css" />
     <script src="{{ asset('/public/layouts/semi-dark-menu/loader.js') }}"></script>
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+    {{-- <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet"> --}}
+    <link href="{{ asset('/public/css/google/font.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('/public/src/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('/public/layouts/semi-dark-menu/css/light/plugins.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('/public/layouts/semi-dark-menu/css/dark/plugins.css') }}" rel="stylesheet" type="text/css" />
@@ -83,7 +84,7 @@
         <div class="overlay"></div>
         <div class="search-overlay"></div>
 
-        @include('layout.sidebaradmin')
+        @include('layout_petugas.sidebar')
         
         <!--  BEGIN CONTENT AREA  -->
         <div id="content" class="main-content">
@@ -132,6 +133,10 @@
         <!--  END CONTENT AREA  -->
     </div>
     <!-- END MAIN CONTAINER -->
+    <form method="post" action="" id="subpindahmenu">
+        @csrf
+        <input type="hidden" name="jwt" value="{{ $flashMessage_json }}">
+    </form>
 
     <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
     <script src="{{ asset('/public/src/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
@@ -140,6 +145,12 @@
     <script src="{{ asset('/public/src/plugins/src/waves/waves.min.js') }}"></script>
     <script src="{{ asset('/public/layouts/semi-dark-menu/app.js') }}"></script>
     <!-- END GLOBAL MANDATORY SCRIPTS -->
+    <script>
+        function pindahmenu(url){
+            document.getElementById('subpindahmenu').action = url;
+            document.getElementById('subpindahmenu').submit();
+        }
+    </script>
 
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
 

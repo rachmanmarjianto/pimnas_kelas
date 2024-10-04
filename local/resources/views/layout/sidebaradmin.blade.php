@@ -23,8 +23,8 @@
         <div class="shadow-bottom"></div>
         <ul class="list-unstyled menu-categories" id="accordionExample">
             
-            <li class="menu">
-                <a href="./app-notes.html" aria-expanded="false" class="dropdown-toggle">
+            <li class="menu @if($menu == 'Dashboard') active @endif">
+                <a href="{{ url('/admin') }}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
                         <span>Dashboard</span>
@@ -32,8 +32,8 @@
                 </a>
             </li>            
                                 
-            <li class="menu ">
-                <a href="#layouts" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+            <li class="menu @if($menu == 'Master') active @endif">
+                <a href="#master" data-bs-toggle="collapse" @if($menu == 'Master') aria-expanded="true" @else aria-expanded="false" @endif class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-terminal"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
                         <span>Master</span>
@@ -42,18 +42,27 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
                     </div>
                 </a>
-                <ul class="collapse submenu list-unstyled " id="layouts" data-bs-parent="#accordionExample">
-                    <li>
-                        <a href="./layout-blank-page.html"> User </a>
+                <ul class="collapse submenu list-unstyled @if($menu == 'Master') show @endif" id="master" data-bs-parent="#accordionExample">
+                    <li class="@if($submenu == 'User') active @endif">
+                        <a href="{{ url('/admin/masteruser') }}"> User </a>
                     </li>
-                    <li class="">
-                        <a href="./layout-empty.html"> Ruang </a>
+                    <li class="@if($submenu == 'Ruang') active @endif">
+                        <a href="{{ url('/admin/masterruang') }}"> Ruang </a>
                     </li>
-                    <li>
+                    {{-- <li>
                         <a href="./layout-boxed.html"> Konfigurasi kelas </a>
-                    </li>
+                    </li> --}}
                 </ul>
             </li> 
+
+            <li class="menu @if($menu == 'Monitor') active @endif">
+                <a href="{{ url('/admin/monitorruang') }}" aria-expanded="false" class="dropdown-toggle">
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
+                        <span>Monitor Ruang</span>
+                    </div>
+                </a>
+            </li>
             
             
             
