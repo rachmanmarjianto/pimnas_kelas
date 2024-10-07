@@ -532,7 +532,7 @@ class AdminController extends Controller
                     ->first()->username;
 
         $data = [
-            'password' => password_hash($username."123", PASSWORD_BCRYPT),
+            'password' => password_hash($username."@irlangg@", PASSWORD_BCRYPT),
         ];
 
         $ret = DB::table('users')->where('id', $request->input('iduser'))->update($data);
