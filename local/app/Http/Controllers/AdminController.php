@@ -467,9 +467,20 @@ class AdminController extends Controller
                     ->orderBy('r.nama_ruang', 'asc')
                     ->get();
 
+        $peserta = DB::table('kelompok as k')
+                    ->select('k.idruang', DB::raw('count(k.idkelompok) as peserta'))
+                    ->groupBy('k.idruang')
+                    ->get();
+
+        // dd($peserta);
+        $peserta_arr = array();
+        foreach($peserta as $p){
+            $peserta_arr[$p->idruang] = $p->peserta;
+        }
+
         // dd($ruang);
 
-        return view('admin.monitorruang', compact('menu', 'submenu', 'ruang'));
+        return view('admin.monitorruang', compact('menu', 'submenu', 'ruang', 'peserta_arr'));
     }
 
     public function dalamruang($id){

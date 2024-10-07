@@ -28,6 +28,7 @@
                         <th>Gedung</th>
                         <th>Skema</th>
                         <th>Kelompok Maju</th>
+                        <th>Jumlah Peserta</th>
                         <th class="no-content">Action</th>
                     </tr>
                 </thead>
@@ -38,6 +39,7 @@
                         <td>{{ $r->nama_gedung }}</td>
                         <td>{{ $r->nama_skema }}</td>
                         <td>{{ $r->kelompok_maju }}</td>
+                        <td>{{ $peserta_arr[$r->idruang] }}</td>
                         <td>
                             <a href="{{ url('/admin/dalamruang/'.$r->idruang) }}" class="btn btn-primary">Monitor</a>
                     </tr>
