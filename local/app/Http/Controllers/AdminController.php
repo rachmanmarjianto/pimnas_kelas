@@ -538,7 +538,7 @@ class AdminController extends Controller
         $ret = DB::table('users')->where('id', $request->input('iduser'))->update($data);
 
         if($ret){
-            return response()->json(array('msg' => 'Berhasil, password: [username]123'));
+            return response()->json(array('msg' => 'Berhasil, password: [username]@irlangg@') );
         }
         else{
             return response()->json(array('msg' => 'Password reset failed'));
