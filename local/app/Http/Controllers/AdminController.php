@@ -161,7 +161,7 @@ class AdminController extends Controller
         else{
             $data = [
                 'username' => $request->input('username'),
-                'password' => password_hash($request->input('username')."123", PASSWORD_BCRYPT),
+                'password' => password_hash($request->input('username')."@irlangg@", PASSWORD_BCRYPT),
                 'status' => '1',
             ];
 

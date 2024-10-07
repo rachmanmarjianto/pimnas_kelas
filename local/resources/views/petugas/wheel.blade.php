@@ -311,7 +311,8 @@
                 type: "POST",
                 data: {
                     _token: "{{ csrf_token() }}",
-                    idkelompok: idkelompok
+                    idkelompok: idkelompok,
+                    jwt: "<?= $flashMessage_json ?>",
                 },
                 success: function(response) {
                     // console.log(response);
